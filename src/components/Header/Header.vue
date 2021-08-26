@@ -3,7 +3,7 @@
     <div class="header-navigation">
       <router-link to="/">Characters</router-link>
       |
-      <router-link to="/about">Favourites</router-link>
+      <router-link to="/favourites">Favourites</router-link>
     </div>
     <div class="header-favourites">
       <HeartIcon />
@@ -28,12 +28,17 @@ export default defineComponent({
       count: 0,
     };
   },
+  filters: {
+    favourites(value) {
+      return value.length;
+    },
+  },
   computed: {
     ...mapGetters({
       favourites: FAVOURITES_IDS,
     }),
     favouritesCount(): number {
-      return this.favourites?.length || 0;
+      return this.favourites.length;
     },
   },
 });

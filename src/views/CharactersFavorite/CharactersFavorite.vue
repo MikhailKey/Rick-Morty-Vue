@@ -1,7 +1,8 @@
 <template>
-  <div class="favorite">
+  <div class="favourites">
     <div v-if="favouritesLength" class="container">
-      <div class="favourites-list" v-if="!error">
+      <Loader v-if="loading" />
+      <div class="favourites-list" v-else-if="!error">
         <CharacterCard
           v-for="favorite in favourites"
           :key="favorite.id"
@@ -22,22 +23,28 @@ import { mapActions, mapGetters } from "vuex";
 import {
   ERROR,
   FAVOURITES,
+  FAVOURITES_IDS,
   GET_FAVOURITES,
   GET_FAVOURITES_IDS,
+  LOADING,
 } from "@/store/types";
+import Loader from "@/components/Loader/Loader.vue";
 import CharacterCard from "@/components/CharacterCard/CharacterCard.vue";
 export default defineComponent({
   name: "CharactersFavorite",
   components: {
     CharacterCard,
+    Loader,
   },
   computed: {
     ...mapGetters({
       favourites: FAVOURITES,
+      favouritesId: FAVOURITES_IDS,
       error: ERROR,
+      loading: LOADING,
     }),
     favouritesLength(): number {
-      return this.favourites?.length || 0;
+      return this.favouritesId?.length || 0;
     },
   },
   methods: {
@@ -55,6 +62,7 @@ export default defineComponent({
 
 <style lang="scss">
 .favourites {
+  margin-bottom: 50px;
   &-list {
     margin-top: 50px;
     display: grid;

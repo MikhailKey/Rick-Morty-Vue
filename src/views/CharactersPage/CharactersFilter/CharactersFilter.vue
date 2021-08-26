@@ -7,7 +7,11 @@
       @changeFilter="changeFilter"
     />
     <div class="char-filter-search">
-      <Search @changeSearch="changeSearch" :searchValue="searchValue" :loading="loading" />
+      <Search
+        @changeSearch="changeSearch"
+        :searchValue="searchValue"
+        :loading="loading"
+      />
     </div>
   </div>
 </template>

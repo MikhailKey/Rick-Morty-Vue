@@ -3,20 +3,22 @@
     <CharactersFilter />
     <Loader v-if="loading" />
     <div class="container" v-else>
-      <div class="characters-list" v-if="!error">
-        <CharacterCard
-          v-for="character in characters"
-          :key="character.id"
-          :character="character"
+      <div v-if="!error">
+        <div class="characters-list">
+          <CharacterCard
+            v-for="character in characters"
+            :key="character.id"
+            :character="character"
+          />
+        </div>
+        <Pagination
+          @changePage="getPage"
+          :max="pagesCount"
+          :currentPage="page"
+          :loading="loading"
         />
       </div>
       <div class="characters-list" v-else>{{ error }}</div>
-      <Pagination
-        @changePage="getPage"
-        :max="pagesCount"
-        :currentPage="page"
-        :loading="loading"
-      />
     </div>
   </div>
 </template>
@@ -85,13 +87,13 @@ export default defineComponent({
     this.getFavouritesIds();
   },
   watch: {
-    page(value) {
+    page(value: number) {
       this.updateURLParams(value, "page");
     },
-    searchValue(value) {
+    searchValue(value: string) {
       this.updateURLParams(value, "name");
     },
-    species(value) {
+    species(value: string) {
       this.updateURLParams(value, "species");
     },
   },

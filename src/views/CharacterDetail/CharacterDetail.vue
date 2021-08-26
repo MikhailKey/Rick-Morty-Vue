@@ -66,16 +66,21 @@ export default defineComponent({
       error: ERROR,
       favouritesIds: FAVOURITES_IDS,
     }),
+    episode() {
+      return this.character.episode[0];
+    },
     alreadyInList(): boolean {
-      if (this.favouritesIds?.length) {
-        return this.favouritesIds.some(
-          (item: number) => item === this.character.id
-        );
-      }
-      return false;
+      return this.favouritesIds.some(
+        (item: number) => item === this.character.id
+      );
     },
     characterLoaded(): boolean {
       return this.character !== null;
+    },
+  },
+  watch: {
+    loading(value) {
+      console.log(value);
     },
   },
   methods: {

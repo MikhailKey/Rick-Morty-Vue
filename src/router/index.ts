@@ -15,7 +15,7 @@ const routes: Array<RouteRecordRaw> = [
     component: CharacterDetail,
   },
   {
-    path: "/about",
+    path: "/favourites",
     name: "Favourites",
     component: CharactersFavorite,
   },

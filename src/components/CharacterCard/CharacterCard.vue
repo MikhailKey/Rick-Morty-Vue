@@ -54,12 +54,9 @@ export default defineComponent({
       favouritesIds: FAVOURITES_IDS,
     }),
     alreadyInList(): boolean {
-      if (this.favouritesIds?.length) {
-        return this.favouritesIds.some(
-          (item: number) => item === this.character.id
-        );
-      }
-      return false;
+      return this.favouritesIds.some(
+        (item: number) => item === this.character.id
+      );
     },
   },
   methods: {

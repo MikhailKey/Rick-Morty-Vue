@@ -7,5 +7,5 @@ export interface CharacterResponse {
     pages: number;
     prev: number | null;
   };
-  results: Character[] | [];
+  results: Character[];
 }
