@@ -29,7 +29,7 @@ export default defineComponent({
     };
   },
   filters: {
-    favourites(value) {
+    favourites(value: number[]) {
       return value.length;
     },
   },

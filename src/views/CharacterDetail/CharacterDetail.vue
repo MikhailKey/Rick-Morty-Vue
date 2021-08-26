@@ -66,7 +66,7 @@ export default defineComponent({
       error: ERROR,
       favouritesIds: FAVOURITES_IDS,
     }),
-    episode() {
+    episode(): string {
       return this.character.episode[0];
     },
     alreadyInList(): boolean {
