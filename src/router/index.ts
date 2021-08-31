@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import CharactersList from "@/views/CharactersPage/CharactersPage.vue";
 import CharactersFavorite from "@/views/CharactersFavorite/CharactersFavorite.vue";
 import CharacterDetail from "@/views/CharacterDetail/CharacterDetail.vue";
@@ -22,7 +22,7 @@ const routes: Array<RouteRecordRaw> = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes,
 });
 
