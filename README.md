@@ -5,6 +5,9 @@
 npm install
 ```
 
+### GH-pages
+ https://mikhailkey.github.io/Rick-Morty-Vue/
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve
